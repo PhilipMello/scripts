@@ -58,25 +58,67 @@ function github_connection_test() {
 function github_set_account() {
     # Github set account
     reap -p "Enter your Github Account Name": github_set_account_name
-    reap -p "Enter your Github Account Name": github_set_account_email
+    reap -p "Enter your Github Account Email": github_set_account_email
     git config user.name "$github_set_account_name"
     git config user.email "$github_set_account_email"
 }
 
+function github_account_switch() {
+    # Github Account Switch (2 Accounts)
+    echo "Choose an option:"
+    echo "Switch to Account 1"
+    echo "Switch to Account 2"
+    read choice
+
+    #sudo chown philip:philip -R  ~/.ssh
+    #chmod 700  ~/.ssh/
+    #chmod 600  ~/.ssh/id_ed25519.pub
+    #chmod 600  ~/.ssh/id_ed25519
+
+    case $choice in
+    1)
+        echo "Github Account #1 Selected."
+        gitHubAccount1 = "%userprofile%\.ssh\id_ed25519_account1"
+        gitHubAccount1_pub = "%userprofile%\.ssh\id_ed25519_account1.pub"
+        newFileName1 = "id_ed25519"
+        newFileName1_pub = "id_ed25519.pub"
+        mv $gitHubAccount1 $newFileName1
+        mv $gitHubAccount1_pub $newFileName1_pub
+        ;;
+    2)
+        echo "Github Account #2 Selected."
+        echo "Github Account #1 Selected."
+        gitHubAccount2 = "%userprofile%\.ssh\id_ed25519"
+        gitHubAccount2_pub = "%userprofile%\.ssh\id_ed25519.pub"
+        newFileName2 = "id_ed25519_account1"
+        newFileName2_pub = "id_ed25519_account1.pub"
+        mv $gitHubAccount2 $newFileName2
+        mv $gitHubAccount2_pub $newFileName2_pub
+        ;;
+    *)
+        echo "Invalid choice. Please select 1 or 2."
+        ;;
+esac
+}
+
 echo "Choose an option:"
-echo "1. Generate SSH Key"
-echo "2. Test Github SSH connection"
-echo "3. Set Github account"
+echo "1. Switch GitHub Account"
+echo "2. Generate SSH Key"
+echo "3. Test Github SSH connection"
+echo "4. Set Github account"
 read option
 
 case $option in
-    1)  
+    1)
+        github_account_switch
+        ;;
+    2)  
         github_generate_sshkey
         ;;
-    2)
+    3)
         github_connection_test
         ;;
-    3)
+    4)
         github_set_account
         ;;
     *)
