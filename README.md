@@ -12,7 +12,13 @@
 
 ---
 # 🔧 Git-Switch
-
+```
+wget https://github.com/PhilipMello/scripts/blob/main/git-switch && chmod +x git-switch
+```
+RUN:
+```
+./git-switch
+```
 
 ---
 ## 🔧 Switch Github Account
