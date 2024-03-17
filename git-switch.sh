@@ -65,35 +65,25 @@ function github_set_account() {
 
 function github_account_switch() {
     # Github Account Switch (2 Accounts)
+    echo -e "You're logged in as:\n"
+    ssh -T git@github.com
     echo "Choose an option:"
     echo "Switch to Account 1"
     echo "Switch to Account 2"
     read choice
 
-    #sudo chown philip:philip -R  ~/.ssh
-    #chmod 700  ~/.ssh/
-    #chmod 600  ~/.ssh/id_ed25519.pub
-    #chmod 600  ~/.ssh/id_ed25519
-
     case $choice in
     1)
-        echo "Github Account #1 Selected."
-        gitHubAccount1 = "%userprofile%\.ssh\id_ed25519_account1"
-        gitHubAccount1_pub = "%userprofile%\.ssh\id_ed25519_account1.pub"
-        newFileName1 = "id_ed25519"
-        newFileName1_pub = "id_ed25519.pub"
-        mv $gitHubAccount1 $newFileName1
-        mv $gitHubAccount1_pub $newFileName1_pub
+        cp ~/.ssh/id_ed25519_account1 ~/.ssh/id_ed25519
+        cp ~/.ssh/id_ed25519_account1.pub ~/.ssh/id_ed25519.pub
+        echo -e "Github Account #1 Selected!\n"
+        ssh -T git@github.com
         ;;
     2)
-        echo "Github Account #2 Selected."
-        echo "Github Account #1 Selected."
-        gitHubAccount2 = "%userprofile%\.ssh\id_ed25519"
-        gitHubAccount2_pub = "%userprofile%\.ssh\id_ed25519.pub"
-        newFileName2 = "id_ed25519_account1"
-        newFileName2_pub = "id_ed25519_account1.pub"
-        mv $gitHubAccount2 $newFileName2
-        mv $gitHubAccount2_pub $newFileName2_pub
+        cp ~/.ssh/id_ed25519_account2 ~/.ssh/id_ed25519
+        cp ~/.ssh/id_ed25519_account2.pub ~/.ssh/id_ed25519.pub
+        echo -e "Github Account #2 Selected!\n"
+        ssh -T git@github.com
         ;;
     *)
         echo "Invalid choice. Please select 1 or 2."
@@ -101,11 +91,24 @@ function github_account_switch() {
 esac
 }
 
+function github_fix_permissions() {
+    # Git fix files permissions
+    echo "Fixing SSH file permissions..."
+    chown $USER:$USER -R  ~/.ssh
+    chmod 700  ~/.ssh/
+    chmod 600  ~/.ssh/id_ed25519_account1
+    chmod 600  ~/.ssh/id_ed25519_account1.pub
+    chmod 600  ~/.ssh/id_ed25519_account2
+    chmod 600  ~/.ssh/id_ed25519_account2.pub
+    echo "Files permissions has been fixed"
+}
+
 echo "Choose an option:"
 echo "1. Switch GitHub Account"
 echo "2. Generate SSH Key"
 echo "3. Test Github SSH connection"
 echo "4. Set Github account"
+echo "5. Fix SSH file permissions"
 read option
 
 case $option in
@@ -120,6 +123,9 @@ case $option in
         ;;
     4)
         github_set_account
+        ;;
+    5)
+        github_fix_permissions
         ;;
     *)
         echo "Invalid option"
