@@ -6,7 +6,7 @@
 - 🔖 [Git-Switch](#-git-switch)<br>
     - 🔖 [Switch Github Account](#-switch-github-account)<br>
     - 🔖 [Generate SSH Key](#-generate-ssh-key)<br>
-    - 🔖 [Test Github SSH connection](#-test-github-connection)<br>
+    - 🔖 [Test Github SSH connection](#-test-github-ssh-connection)<br>
     - 🔖 [Set Github account](#-set-github-account)<br>
     - 🔖 [Fix file permissions](#-fix-file-permissions)<br>
 
