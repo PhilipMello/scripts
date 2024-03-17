@@ -103,6 +103,23 @@ function github_fix_permissions() {
     echo "Files permissions has been fixed"
 }
 
+# ---
+
+# Manual
+manual() {
+echo "Generate 2 SSH Keys and rename Github account to
+id_ed25519_account1 and Github account 2 to id_ed25519_account2
+in ~/.ssh
+"
+
+exit 0
+}
+
+if [[ $1 == "-h" || $1 == "--help" || $1 == "--h" ]]; then
+    manual
+    exit 1
+fi
+
 echo "Choose an option:"
 echo "1. Switch GitHub Account"
 echo "2. Generate SSH Key"
