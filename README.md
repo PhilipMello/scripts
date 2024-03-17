@@ -16,19 +16,20 @@
 
 ---
 ## 🔧 Switch Github Account
-
+![](assets/img/github-account-switch.gif)
 
 ---
 ## 🔧 Generate SSH Key
-
+![]()
 
 ---
 ## 🔧 Test Github SSH connection
-
+![](assets/img/github-test-connection_account1.gif)
 
 ---
 ## 🔧 Set Github account
-
+![]()
 
 ---
 ## 🔧 Fix file permissions
+![](assets/img/github-fix-file-permission.gif)
