@@ -8,7 +8,7 @@
     - 🔖 [Generate SSH Key](#-generate-ssh-key)<br>
     - 🔖 [Test Github SSH connection](#-test-github-connection)<br>
     - 🔖 [Set Github account](#-set-github-account)<br>
-    - 🔖 [Fix SSH file permissions](#-fix-file-permissions)<br>
+    - 🔖 [Fix file permissions](#-fix-file-permissions)<br>
 
 ---
 # 🔧 Git-Switch
@@ -31,4 +31,4 @@
 
 
 ---
-## 🔧 Fix SSH file permissions
+## 🔧 Fix file permissions
