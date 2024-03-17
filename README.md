@@ -20,6 +20,16 @@ RUN:
 ./git-switch
 ```
 
+Manual:
+```
+./git-switch -h
+```
+
+To run in Pipeline:
+```
+./git-switch --account1 OR ./git-switch --account2
+```
+
 ---
 ## 🔧 Switch Github Account
 ![](assets/img/github-account-switch.gif)
