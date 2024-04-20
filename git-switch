@@ -71,8 +71,8 @@ function github_account_switch() {
     echo -e "You're logged in as:\n"
     ssh -T git@github.com
     echo "Choose an option:"
-    echo -e "Switch to Account 1: $github_account1"
-    echo "Switch to Account 2: $github_account2"
+    echo "1. Switch to Account: $github_account1"
+    echo "2. Switch to Account: $github_account2"
     read choice
 
     case $choice in
