@@ -65,11 +65,13 @@ function github_set_account() {
 
 function github_account_switch() {
     # Github Account Switch (2 Accounts)
+    github_account1=$(cat ~/.ssh/id_ed25519_account1.pub | grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}\b")
+    github_account2=$(cat ~/.ssh/id_ed25519_account2.pub | grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}\b")
     echo -e "You're logged in as:\n"
     ssh -T git@github.com
     echo "Choose an option:"
-    echo "Switch to Account 1"
-    echo "Switch to Account 2"
+    echo -e "Switch to Account 1: $github_account1"
+    echo "Switch to Account 2: $github_account2"
     read choice
 
     case $choice in
