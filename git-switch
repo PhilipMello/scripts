@@ -27,6 +27,7 @@ echo "
 # How to use: Execute ./git-switch
 # Exemples:
 # Manual: ./git-switch -h OR ./git-switch--h OR ./git-switch --help
+# Change account using parameter: ./git-switch --account1
 # --------------------------------------------------------------
 "
 WHITE=""
@@ -122,13 +123,13 @@ if [[ $1 == "-h" || $1 == "--help" || $1 == "--h" ]]; then
 elif [[ $1 == "--account1" ]]; then
     cp ~/.ssh/id_ed25519_account1 ~/.ssh/id_ed25519
     cp ~/.ssh/id_ed25519_account1.pub ~/.ssh/id_ed25519.pub
-    echo -e "Github Account #1 Selected!\n"
+    echo -e "Github Account #1 has been selected!\n"
     ssh -T git@github.com
     exit 0
 elif [[ $1 == "--account2" ]]; then
     cp ~/.ssh/id_ed25519_account2 ~/.ssh/id_ed25519
     cp ~/.ssh/id_ed25519_account2.pub ~/.ssh/id_ed25519.pub
-    echo -e "Github Account #2 Selected!\n"
+    echo -e "Github Account #2 has been selected!\n"
     ssh -T git@github.com
     exit 0
 fi
